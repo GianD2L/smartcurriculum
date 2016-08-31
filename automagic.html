@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href='fullcalendar-2.8.0/fullcalendar.css' rel='stylesheet' />
+<link href='fullcalendar-2.8.0/fullcalendar.print.css' rel='stylesheet' media='print' />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="fuelux-3.13.0/dist/css/fuelux.css">
+<link rel="stylesheet" href="css/automagic.css">
+</head>
+<body>
+
+<div id="automagic-widget" class="container">
+
+    <div id="calendarLayout" class="row">
+        <div id="calendar" class="col-xs-8"></div>
+        <div id="calfeed" class="col-xs-4"></div>
+
+    </div>
+
+	<div class="row">
+    	<div class="col-xs-12">
+        	<img src="img/DaylightBar2.png">
+        </div>
+
+    </div>
+    <div class="row">
+    	<div class="col-xs-12">
+             <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="disabled" role="presentation"><a class="disabled" aria-controls="classroom" role="tab">Classroom</a></li>
+                <li class="disabled" role="presentation"><a class="disabled" aria-controls="gradebook" role="tab">Gradebook</a></li>
+                <li class="disabled" role="presentation"><a class="disabled" aria-controls="classlist" role="tab">Classlist</a></li>
+                <li role="presentation"><a id="showCal" href="javascript:viewCalendar()" aria-controls="calendar" role="tab">Calendar</a></li>
+                <li role="presentation" class="active"><a id="showCurr" href="javascript:viewCurriculum()" aria-controls="curriculum" role="tab">Curriculum</a></li>
+                <li role="presentation"><a href="https://dl.dropboxusercontent.com/u/16411361/proto/sketches/standards.png" aria-controls="standards" role="tab">Standards</a></li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane" id="classroom"></div>
+                <div role="tabpanel" class="tab-pane" id="gradebook"></div>
+                <div role="tabpanel" class="tab-pane" id="classlist"></div>
+                <div role="tabpanel" class="tab-pane" id="calendar"></div>
+                <div role="tabpanel" class="tab-pane" id="curriculum"></div>
+                <div role="tabpanel" class="tab-pane" id="standards"></div>
+              </div>
+        </div>
+    </div>
+
+	<div class="row">
+		<div class="col-xs-12">
+            <div class="nav-toolbar">
+                <a id="standardStatus" href="javascript:showStandards()" title="Standard Alignment Warning"><img src="icons/warning-512.png"></a>
+
+
+<ul id="curroptions" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a aria-controls="course" role="tab">Course</a><img class="activearrow" src="img/chevron-up.png"></li>
+                <li class="disabled" role="presentation"><a class="disabled" aria-controls="studentview" role="tab">Student View</a></li>
+                <li class="disabled" role="presentation"><a class="disabled" aria-controls="classroom" role="tab">Default</a></li>
+              </ul>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+  <div class="row" id="speedo">
+      <div class="col-xs-12">
+          <div style="display: flex; align-items: flex-end; ">
+            <h1 style="padding-left: 28px; flex-grow: 1">Curriculum Plan</h1>
+            <div style="flex-basis: auto;">
+              <a href="javascript:showStandards()">
+                <div class="speedo_bg bigger">
+                  <div class="slice sliceA">&nbsp;</div>
+                  <div class="slice sliceB">&nbsp;</div>
+                  <div class="slice sliceC">&nbsp;</div>
+                  <div class="alignment">100%</div>
+                </div>
+                <h4>STANDARDS ALIGNMENT</h4>
+              </a>
+            </div>
+          </div>
+      </div>
+  </div>
+
+	<div class="row">
+        <div class="col-xs-12">
+
+            <div id="view-units">
+            	<!--<h3>Science GR8-A</h3>
+                <div class="image-course"><img src="img/science.png"></div>-->
+                <ul class="units">
+
+
+                </ul>
+            </div>
+        </div>
+	</div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="welcomeModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="welcomeModalLabel">Welcome</h4>
+          </div>
+          <div class="modal-body">
+          	<div class="text-center">
+            	<img src="img/Welcome.png">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="calModal" tabindex="-1" role="dialog" aria-labelledby="calModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="calModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+          	<div class="btn-group-vertical">
+                <a id="calUp" class="btn btn-primary" href="#">Shift Module Earlier</a>
+                <a id="calDown" class="btn btn-primary" href="#">Shift Module Later</a>
+                <a id="modStd" class="btn btn-primary" href="#">View Module Standards</a>
+                <a id="calDel" class="btn btn-primary" href="#">Exclude Module From Course</a>
+                <a class="disabled btn btn-primary" href="#">Replace Module (Coming Soon)</a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="excludeModal" tabindex="-1" role="dialog" aria-labelledby="excludeModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="excludeModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button id="excludeConfirm" type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="standardsModal" tabindex="-1" role="dialog" aria-labelledby="standardsModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="standardsModalLabel">Standards Alignment</h4>
+          </div>
+          <div class="modal-body">
+          	<p>The following standards are not currently aligned to any content within the course:</p>
+          	<ul id="courseStandards">
+
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="unitstandardsModal" tabindex="-1" role="dialog" aria-labelledby="unitstandardsModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="unitstandardsModalLabel">Module Standards</h4>
+          </div>
+          <div class="modal-body">
+          	<p>Below are the recommended standards for <span id="modtitle"></span>. Items <span class="highlighted">highlighted</span> are not currently associated with any content in this Module.</p>
+          	<ul id="courseStandards">
+
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="lessonstandardsModal" tabindex="-1" role="dialog" aria-labelledby="lessonstandardsModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="lessonstandardsModal">Lesson Standards</h4>
+          </div>
+          <div class="modal-body">
+          	<p>Below are the recommended standards for <span id="modtitle"></span>. Items <span class="highlighted">highlighted</span> are not currently associated with any content in this Lesson.</p>
+          	<ul id="courseStandards">
+
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Replace Content</h4>
+          </div>
+          <div class="modal-body">
+            <div class="fuelux">
+                <div class="wizard" data-initialize="wizard" id="myWizard">
+                    <div class="steps-container">
+                        <ul class="steps">
+                            <li data-step="1" class="active">
+                                <span class="badge">1</span>Add a File
+                                <span class="chevron"></span>
+                            </li>
+                            <li data-step="2">
+                                <span class="badge">2</span>Standards Alignment
+                                <span class="chevron"></span>
+                            </li>
+                            <li data-step="3">
+                                <span class="badge">3</span>Content Information
+                                <span class="chevron"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="actions">
+                        <button type="button" class="btn btn-default btn-prev">
+                            <span class="glyphicon glyphicon-arrow-left"></span>Prev</button>
+                        <button type="button" class="btn btn-primary btn-next" data-last="Complete">Next
+                            <span class="glyphicon glyphicon-arrow-right"></span>
+                        </button>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-pane active sample-pane alert" data-step="1">
+                        <div class="col-xs-3"> <!-- required for floating -->
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs tabs-left sideways">
+                            <li class="active"><a href="#google-v" data-toggle="tab">Google Drive</a></li>
+                            <li><a href="#onedrive-v" data-toggle="tab">OneDrive Files</a></li>
+                            <li><a href="#course-v" data-toggle="tab">Course Offering Files</a></li>
+                            <li><a href="#shared-v" data-toggle="tab">Shared Files</a></li>
+                            <li><a href="#youtube-v" data-toggle="tab">YouTube</a></li>
+                            <li><a href="#computer-v" data-toggle="tab">My Computer</a></li>
+                          </ul>
+                        </div>
+
+                        <div class="col-xs-9">
+                          <!-- Tab panes -->
+                          <div class="tab-content">
+                            <div class="tab-pane active" id="google-v">
+                               <h4>Google Drive</h4>
+                                  <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th></th>
+                                        <th>Type</th>
+                                        <th>File Name</th>
+                                        <th>Last Modified</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr id="gd-1">
+                                        <td>
+                                            <input type="radio" name="gdoc" id="gd-radio1" value="1" />
+                                        </td>
+                                        <td><img src="icons/document-large.png"></td>
+                                        <td>Mitosis vs. Meiosis.docx</td>
+                                        <td>Oct 9, 2015 3:13 PM</td>
+                                      </tr>
+                                      <tr id="gd-2">
+                                        <td>
+                                            <input type="radio" name="gdoc" id="gd-radio2" value="2" />
+                                        </td>
+                                        <td><img src="icons/document-large.png"></td>
+                                        <td>Mitosis Discussion Questions.docx</td>
+                                        <td>Mar 18, 2015 4:50 PM</td>
+                                      </tr>
+                                      <tr id="gd-3">
+                                        <td>
+                                            <input type="radio" name="gdoc" id="gd-radio3" value="3" />
+                                        </td>
+                                        <td><img src="icons/presentation-large.png"></td>
+                                        <td>Mitosis Slideshow.pptx</td>
+                                        <td>July 28, 2016 1:15 PM</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+
+                            </div>
+                            <div class="tab-pane" id="onedrive-v">
+                            	<h4>Coming Soon!</h4>
+                            </div>
+                            <div class="tab-pane" id="course-v">
+                            	<h4>Coming Soon!</h4>
+                            </div>
+                            <div class="tab-pane" id="shared-v">
+                            	<h4>Coming Soon!</h4>
+                            </div>
+                            <div class="tab-pane" id="youtube-v">
+                            	<h4>Coming Soon!</h4>
+                            </div>
+                            <div class="tab-pane" id="computer-v">
+                            	<h4>Coming Soon!</h4>
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+                        </div>
+                        <div class="step-pane sample-pane bg-danger alert" data-step="2">
+                            <h4>Confirm National and State Standards</h4>
+                            <p>Confirm that your new material aligns to the standards for this topic:</p>
+                            <div class="standards-check">
+
+                            </div>
+                        </div>
+
+                        <div class="step-pane sample-pane bg-info alert" data-step="3">
+                            <h4>Content Information</h4>
+                            <form>
+                              <div class="form-group">
+                                <label for="inputTitle">Content Title</label>
+                                <input type="text" class="form-control" id="inputTitle" placeholder="Content Title">
+                              </div>
+                              <div class="form-group">
+                                <label for="inputHours">Learning Hours</label>
+                                <input type="number" class="form-control" id="inputHours" placeholder="Learning Hours">
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+</div>
+
+
+<script src='js/standards.js'></script>
+<script src='js/coursedata.js'></script>
+<script src='fullcalendar-2.8.0/lib/moment.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src='fullcalendar-2.8.0/fullcalendar.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="fuelux-3.13.0/dist/js/fuelux.js"></script>
+<script src='js/automagic.js'></script>
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="spinner_overlay_slice" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LoaderPieSlice">
+            <g id="Page-1">
+                <g id="iPhone-6">
+                    <g id="LoaderPieSlice">
+                        <path d="M24,32 L32,32 C32,14.326888 17.673112,0 0,0 L0,8 C1.1045695,8 2,8.8954305 2,10 C2,11.1045695 1.1045695,12 0,12 L0,32 L20,32 C20,30.8954305 20.8954305,30 22,30 C23.1045695,30 24,30.8954305 24,32 L24,32 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                        <path d="M0,12 C1.1045695,12 2,11.1045695 2,10 C2,8.8954305 1.1045695,8 0,8 C13.254834,8 24,18.745166 24,32 C24,30.8954305 23.1045695,30 22,30 C20.8954305,30 20,30.8954305 20,32 C20,20.954305 11.045695,12 0,12 L0,12 Z" id="Combined-Shape" fill="#E6EAF0"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

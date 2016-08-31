@@ -1,0 +1,223 @@
+{
+  "CourseImage": "astronomy.png",
+  "StartDate": "6/26/2016",
+  "EndDate": "8/26/2016",
+  "Units": [
+    {
+      "Title": "Weather & Climate",
+      "UnitImage": "weather.png",
+      "Lessons": [
+        {
+          "Title": "Clouds",
+          "LessonImage": "clouds.png",
+          "LearningObjects": [
+            {
+              "Type": "Quiz",
+              "Title": "Clouds Quiz",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Doc",
+              "Title": "Clouds Handout 1",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Doc",
+              "Title": "Clouds Handout 2",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Clouds Video 1",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Clouds Video 2",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Clouds Video 3",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Clouds Video 4",
+              "NumHours": 2,
+              "NumDays": 3
+            }
+          ]
+        },
+        {
+          "Title": "Heat & Drought",
+          "LessonImage": "heat.png",
+          "LearningObjects": [
+            {
+              "Type": "Quiz",
+              "Title": "Heat Quiz",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Doc",
+              "Title": "Drought Quiz",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Doc",
+              "Title": "Heat Handout 1",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Doc",
+              "Title": "Heat Handout 2",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Dov",
+              "Title": "Drought Handout 3",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Dov",
+              "Title": "Drought Handout 4",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Heat Video",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Drought Video",
+              "NumHours": 2,
+              "NumDays": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Title": "Geology",
+      "UnitImage": "geology.png",
+      "Lessons": [
+        {
+          "Title": "Clouds",
+          "LessonImage": "clouds.png",
+          "LearningObjects": [
+            {
+              "Type": "Quiz",
+              "Title": "Clouds Quiz",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Doc",
+              "Title": "Clouds Handout 1",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Doc",
+              "Title": "Clouds Handout 2",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Clouds Video 1",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Clouds Video 2",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Clouds Video 3",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Clouds Video 4",
+              "NumHours": 2,
+              "NumDays": 3
+            }
+          ]
+        },
+        {
+          "Title": "Heat & Drought",
+          "LessonImage": "heat.png",
+          "LearningObjects": [
+            {
+              "Type": "Quiz",
+              "Title": "Heat Quiz",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Doc",
+              "Title": "Drought Quiz",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Doc",
+              "Title": "Heat Handout 1",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Doc",
+              "Title": "Heat Handout 2",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Dov",
+              "Title": "Drought Handout 3",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Dov",
+              "Title": "Drought Handout 4",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Heat Video",
+              "NumHours": 2,
+              "NumDays": 3
+            },
+            {
+              "Type": "Video",
+              "Title": "Drought Video",
+              "NumHours": 2,
+              "NumDays": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
